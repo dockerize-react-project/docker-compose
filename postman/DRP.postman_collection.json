@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "20399f47-ccb0-4d31-98d6-987de4b23d34",
+		"name": "DRP POSTMAN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "public",
+			"item": [
+				{
+					"name": "user registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"password\",\r\n    \"roles\": \"ADMIN\",\r\n    \"permissions\":\"READ,WRITE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend}}/signup",
+							"host": [
+								"{{backend}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend}}/login",
+							"host": [
+								"{{backend}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "api add user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "{{token_fieldname}}",
+								"value": "{{token_value}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"user\",\r\n    \"password\":\"user\",\r\n    \"roles\": \"USER\",\r\n    \"permissions\":\"READ\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend}}/v1/user",
+							"host": [
+								"{{backend}}"
+							],
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api update user",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "{{token_fieldname}}",
+								"value": "{{token_value}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "  {                     \r\n            \"roles\": \"ADMINIS\",\r\n            \"permissions\": \"READ\",\r\n            \"blocked\": 0,\r\n            \"active\": 1\r\n            \r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend}}/v1/user/4",
+							"host": [
+								"{{backend}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api view user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{token_fieldname}}",
+								"value": "{{token_value}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{backend}}/v1/user/1",
+							"host": [
+								"{{backend}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api get list user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "{{token_fieldname}}",
+								"value": "{{token_value}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{backend}}/v1/user",
+							"host": [
+								"{{backend}}"
+							],
+							"path": [
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "api delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "{{token_fieldname}}",
+								"value": "{{token_value}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{backend}}/v1/user/5",
+							"host": [
+								"{{backend}}"
+							],
+							"path": [
+								"v1",
+								"user",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
