@@ -55,7 +55,7 @@ services:
   
   backend:
     container_name: drp_backend
-    image: denitiawan/drp-backend:1.1
+    image: denitiawan/drp-backend:1.0
     environment:           
      
         KAISIR_HOST: 'drp_backend'
