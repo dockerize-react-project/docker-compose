@@ -1,2 +1,2 @@
 cd docker-compose-prod/drp
-sh docker-compose up -d
+call docker-compose up -d
